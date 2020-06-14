@@ -1,11 +1,12 @@
 <?php
+
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
   
 // include database and object files
-include_once '../config/Database.php';
-include_once '../objects/Product.php';
+require '../config/Database.php';
+require '../objects/Product.php';
   
 // instantiate database and product object
 $database = new Database();
@@ -22,8 +23,8 @@ $num = $stmt->rowCount();
 if($num>0){
   
     // products array
-    $products_arr=array();
-    $products_arr["records"]=array();
+    $products_arr = [];
+    $products_arr['records'] = [];
   
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -34,16 +35,16 @@ if($num>0){
         // just $name only
         extract($row);
   
-        $product_item=array(
-            "id" => $id,
-            "name" => $name,
-            "description" => html_entity_decode($description),
-            "price" => $price,
-            "category_id" => $category_id,
-            "category_name" => $category_name
-        );
+        $product_item = [
+            'id' => $id,
+            'name' => $name,
+            'description' => html_entity_decode($description),
+            'price' => $price,
+            'category_id' => $category_id,
+            'category_name' => $category_name
+        ];
   
-        array_push($products_arr["records"], $product_item);
+        array_push($products_arr['records'], $product_item);
     }
   
     // set response code - 200 OK
@@ -51,8 +52,8 @@ if($num>0){
   
     // show products data in json format
     echo json_encode($products_arr);
+
 } else {
-  
     // set response code - 404 Not found
     http_response_code(404);
   
