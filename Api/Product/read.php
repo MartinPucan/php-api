@@ -9,7 +9,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 require '../config/Database.php';
   
-// instantiate database and product object
+// instantiate database and Product object
 $database = new Database();
 $db = $database->getConnection();
   
