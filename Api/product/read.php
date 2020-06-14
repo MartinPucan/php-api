@@ -1,12 +1,13 @@
 <?php
 
 // required headers
+use Api\Product;
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
   
 // include database and object files
 require '../config/Database.php';
-require '../objects/Product.php';
   
 // instantiate database and product object
 $database = new Database();

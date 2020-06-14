@@ -10,8 +10,8 @@ class Database
     public $conn;
   
     // get the database connection
-    public function getConnection(){
-  
+    public function getConnection()
+    {
         $this->conn = null;
   
         try {
