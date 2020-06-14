@@ -1,7 +1,5 @@
 <?php
-
-// required headers
-use Api\Product;
+declare(strict_types=1);
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -18,6 +16,7 @@ $product = new Product($db);
   
 // query products
 $stmt = $product->read();
+var_dump($stmt);
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
